@@ -10,4 +10,9 @@ class PlayerController extends MonoBehaviour {
 		var movement = new Vector3(moveX, 0, moveZ);
 		rigidbody.AddForce(movement * speed * Time.deltaTime);
 	}
+	
+	function OnTriggerEnter(other : Collider) {
+		if (other.gameObject.tag == "PickUp")
+			other.gameObject.SetActive(false);
+	}
 }
